@@ -24,5 +24,10 @@
         @endforeach
         </tbody>
       </table>
+
+
+      <a href="{{route('comics.create')}}" class="btn btn-primary ">
+        Crea un elemento
+      </a>
 </div>
 @endsection
