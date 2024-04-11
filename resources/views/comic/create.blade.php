@@ -35,8 +35,13 @@
                 </div>
         
                 <div class="mb-3 col">
-                    <label for="sales_date" class="form-label">Sales Date</label>
-                    <input type="text" class="form-control" id="sales_date" name="sales_date" placeholder='YY-MM-DD' required>
+                    <label for="sale_date" class="form-label">Sales Date</label>
+                    <input type="date" class="form-control" id="sale_date" name="sale_date" placeholder='YY-MM-DD' required>
+                </div>
+
+                <div class="mb-3 col">
+                    <label for="type" class="form-label">Type</label>
+                    <input type="text" class="form-control" id="type" name="type" required>
                 </div>
             </div>
 
