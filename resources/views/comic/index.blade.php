@@ -18,7 +18,7 @@
 
               <td>{{$comic->title}}</td>
             
-            <td><a href="">visualizza dettagli</a></td>
+            <td><a href="{{route('comics.show', $comic->id)}}">visualizza dettagli</a></td>
             
         </tr>
         @endforeach
