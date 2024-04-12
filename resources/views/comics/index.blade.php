@@ -9,7 +9,7 @@
         <thead>
           <tr>
             <th scope="col" class="pb-4">Title</th>
-            <th>Price</th>
+            <th scope="col" class="pb-4">Price</th>
             <th scope="col"></th>
           </tr>
         </thead>
