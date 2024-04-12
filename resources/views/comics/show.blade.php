@@ -37,10 +37,58 @@
     </div>
 
     <br>
-    <div class="d-flex gap-4 ">
-      <a href="{{route('comics.edit', $comic->id)}}" class="btn btn-warning ">Modify</a>
-      <a href="{{route('comics.index')}}" class="btn btn-success">Back to list</a>
+    <div class="d-flex justify-content-between ">
+      <div class="d-flex gap-4">
+        <a href="{{route('comics.edit', $comic->id)}}" class="btn btn-warning ">Modify</a>
+        <a href="{{route('comics.index')}}" class="btn btn-success">Back to list</a>
+      </div>
+      <div>
+        {{-- button for destroy --}}
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Delete Item
+        </button>
+      </div>
     </div>
+
+
+    
+    
+    {{-- Modal for destroy --}}
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered ">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Item</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            Are you sure that you want to delete the comic item:  "{{$comic->title}}" ?
+          </div>
+
+
+          <div class="modal-footer d-flex gap-3 ">
+
+              <button type="button" class="btn btn-success " data-bs-dismiss="modal">Back</button>
+              
+              
+              <form action="{{route('comics.destroy', $comic->id)}}" method="POST">
+                  @csrf
+                  @method("DELETE")
+                  
+                  <button class="btn btn-danger">Go ahed</button>
+              </form>
+
+          </div>
+
+        </div>
+      </div>
+  </div>
+
+
+
+
 </div>
 
 @endsection
