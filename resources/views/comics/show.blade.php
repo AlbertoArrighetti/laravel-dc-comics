@@ -37,8 +37,9 @@
     </div>
 
     <br>
-    <div class="d-flex justify-content-center ">
-        <a href="{{route('comics.index')}}" class="btn btn-success">Back to list</a>
+    <div class="d-flex gap-4 ">
+      <a href="{{route('comics.edit', $comic->id)}}" class="btn btn-warning ">Modify</a>
+      <a href="{{route('comics.index')}}" class="btn btn-success">Back to list</a>
     </div>
 </div>
 
