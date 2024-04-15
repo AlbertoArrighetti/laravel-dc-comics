@@ -12,7 +12,7 @@
     
             <div class="mb-3">
               <label for="title" class="form-label">Title :</label>
-              <input type="text" value="{{$comic->title}}" class="form-control" id="title" name="title" required>
+              <input type="text" value="{{$comic->title}}" class="form-control" id="title" name="title">
             </div>
     
             <div class="mb-3">
@@ -28,34 +28,34 @@
             <div class="row">
                 <div class="mb-3 col">
                     <label for="price" class="form-label">Price :</label>
-                    <input type="text" value="{{$comic->price}}" class="form-control" id="price" name="price" placeholder='es: $20.00' required>
+                    <input type="text" value="{{$comic->price}}" class="form-control" id="price" name="price" placeholder='es: $20.00'>
                 </div>
     
                 <div class="mb-3 col">
                     <label for="series" class="form-label">Series :</label>
-                    <input type="text" value="{{$comic->series}}" class="form-control" id="series" name="series" required>
+                    <input type="text" value="{{$comic->series}}" class="form-control" id="series" name="series">
                 </div>
         
                 <div class="mb-3 col">
                     <label for="sale_date" class="form-label">Sales Date :</label>
-                    <input type="date" value="{{$comic->sale_date}}" class="form-control" id="sale_date" name="sale_date" placeholder='YY-MM-DD' required>
+                    <input type="date" value="{{$comic->sale_date}}" class="form-control" id="sale_date" name="sale_date" placeholder='YY-MM-DD'>
                 </div>
 
                 <div class="mb-3 col">
                     <label for="type" class="form-label">Type :</label>
-                    <input type="text" value="{{$comic->type}}" class="form-control" id="type" name="type" required>
+                    <input type="text" value="{{$comic->type}}" class="form-control" id="type" name="type">
                 </div>
             </div>
 
 
             <div class="mb-3">
                 <label for="artists" class="form-label">Artists :</label>
-                <textarea type="text" class="form-control" id="artists" name="artists" placeholder='es: name, name, ...' required>{{$comic->artists}}</textarea>
+                <textarea type="text" class="form-control" id="artists" name="artists" placeholder='es: name, name, ...'>{{$comic->artists}}</textarea>
             </div>
 
             <div class="mb-5">
                 <label for="writers" class="form-label">Writers :</label>
-                <textarea type="text" class="form-control" id="writers" name="writers" placeholder='es: name, name, ...' required>{{$comic->writers}}</textarea>
+                <textarea type="text" class="form-control" id="writers" name="writers" placeholder='es: name, name, ...'>{{$comic->writers}}</textarea>
             </div>
 
             
