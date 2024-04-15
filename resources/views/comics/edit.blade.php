@@ -12,65 +12,96 @@
     
             <div class="mb-3">
               <label for="title" class="form-label">Title :</label>
-              <input type="text" value="{{$comic->title}}" class="form-control" id="title" name="title">
+              <input type="text" value="{{old('title') ?? $comic->title}}" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required>
+                    @error('title')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                    @enderror
             </div>
     
             <div class="mb-3">
                 <label for="description" class="form-label">Description :</label>
-                <textarea type="text" class="form-control" id="description" rows='6' name="description">{{$comic->description}}</textarea>
+                <textarea type="text" class="form-control @error('description') is-invalid @enderror" id="description" rows='6' name="description">{{old('description') ?? $comic->description}}</textarea>
+                    @error('description')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                    @enderror
             </div>
     
             <div class="mb-3">
                 <label for="thumb" class="form-label">Add a URL for a Thumb :</label>
-                <input type="text" value="{{$comic->thumb}}" class="form-control" id="thumb" name="thumb">
+                <input type="text" value="{{old('thumb') ?? $comic->thumb}}" class="form-control @error('thumb') is-invalid @enderror" id="thumb" name="thumb">
+                    @error('thumb')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                    @enderror
             </div>
 
             <div class="row">
                 <div class="mb-3 col">
                     <label for="price" class="form-label">Price :</label>
-                    <input type="text" value="{{$comic->price}}" class="form-control" id="price" name="price" placeholder='es: $20.00'>
+                    <input type="text" value="{{old('price') ?? $comic->price}}" class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder='es: $20.00' required>
+                        @error('price')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                        @enderror
                 </div>
     
                 <div class="mb-3 col">
                     <label for="series" class="form-label">Series :</label>
-                    <input type="text" value="{{$comic->series}}" class="form-control" id="series" name="series">
+                    <input type="text" value="{{old('series') ?? $comic->series}}" class="form-control @error('series') is-invalid @enderror" id="series" name="series" required>
+                        @error('series')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                        @enderror
                 </div>
         
                 <div class="mb-3 col">
                     <label for="sale_date" class="form-label">Sales Date :</label>
-                    <input type="date" value="{{$comic->sale_date}}" class="form-control" id="sale_date" name="sale_date" placeholder='YY-MM-DD'>
+                    <input type="date" value="{{old('sale_date') ?? $comic->sale_date}}" class="form-control @error('sale_date') is-invalid @enderror" id="sale_date" name="sale_date" placeholder='YY-MM-DD' required>
+                        @error('sale_date')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                        @enderror
                 </div>
 
                 <div class="mb-3 col">
                     <label for="type" class="form-label">Type :</label>
-                    <input type="text" value="{{$comic->type}}" class="form-control" id="type" name="type">
+                    <input type="text" value="{{old('type') ?? $comic->type}}" class="form-control @error('type') is-invalid @enderror" id="type" name="type" required>
+                        @error('type')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                        @enderror
                 </div>
             </div>
 
 
             <div class="mb-3">
                 <label for="artists" class="form-label">Artists :</label>
-                <textarea type="text" class="form-control" id="artists" name="artists" placeholder='es: name, name, ...'>{{$comic->artists}}</textarea>
+                <textarea type="text" class="form-control @error('artists') is-invalid @enderror" id="artists" name="artists" placeholder='es: name, name, ...' required>{{old('artists') ?? $comic->artists}}</textarea>
+                    @error('artists')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                    @enderror
             </div>
 
             <div class="mb-5">
                 <label for="writers" class="form-label">Writers :</label>
-                <textarea type="text" class="form-control" id="writers" name="writers" placeholder='es: name, name, ...'>{{$comic->writers}}</textarea>
+                <textarea type="text" class="form-control @error('writers') is-invalid @enderror" id="writers" name="writers" placeholder='es: name, name, ...' required>{{old('writers') ?? $comic->writers}}</textarea>
+                    @error('writers')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                    @enderror
             </div>
-
-            
-
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>
-                            {{$error}}
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
 
             
             <div class="d-flex justify-content-between">
