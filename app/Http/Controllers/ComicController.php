@@ -115,8 +115,8 @@ class ComicController extends Controller
             'sale_date' => 'required|date',
             'type' => 'required|max:100',
 
-            'artists' => 'nullable|max:2000',
-            'writers' => 'nullable|max:2000',
+            'artists' => 'required|max:2000',
+            'writers' => 'required|max:2000',
         ], [
             'required' => 'Il campo: :attribute deve essere inserito per proseguire.',
             'max' => 'Il campo: :attribute deve contenere massimo :max caratteri.',
