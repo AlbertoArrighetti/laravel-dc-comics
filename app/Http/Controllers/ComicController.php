@@ -76,7 +76,7 @@ class ComicController extends Controller
          // validation function 
          $this->validation($request->all());
 
-         
+
         $comic->title = $request->title;
         $comic->description = $request->description;
         $comic->thumb = $request->thumb;
@@ -117,6 +117,10 @@ class ComicController extends Controller
 
             'artists' => 'nullable|max:2000',
             'writers' => 'nullable|max:2000',
+        ], [
+            'required' => 'Il campo: :attribute deve essere inserito per proseguire.',
+            'max' => 'Il campo: :attribute deve contenere massimo :max caratteri.',
+            'sale_date.date' => 'Questo campo deve avere una data valida.',
         ])->validate();
     }
 }
