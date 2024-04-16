@@ -12,4 +12,17 @@ class Comic extends Model
 
     // trait for soft-delete
     use SoftDeletes;
+
+    //fillable
+    protected $fillable = [
+        'title',
+        'description',
+        'thumb',
+        'price',
+        'series',
+        'sale_date',
+        'type',
+        'artists',
+        'writers',
+    ];
 }
