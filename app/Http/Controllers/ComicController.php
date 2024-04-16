@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreComicRequest;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -29,10 +30,11 @@ class ComicController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
-        // validation function 
-        $this->validation($request->all());
+        // validation
+        $request->validated();
+
 
         $newComic = new Comic();
 
@@ -71,10 +73,10 @@ class ComicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comic $comic)
+    public function update(StoreComicRequest $request, Comic $comic)
     {
-         // validation function 
-         $this->validation($request->all());
+        // validation
+        $request->validated();
 
 
         $comic->title = $request->title;
@@ -103,34 +105,4 @@ class ComicController extends Controller
         return redirect()->route('comics.index');
     }
 
-    private function validation($data) {
-        $validator = Validator::make($data, [
-            'title' => 'required|max:255',
-
-            'description' => 'nullable|max:2000',
-            'thumb' => 'nullable|max:2000',
-
-            'price' => 'required|max:10',
-            'series' => 'required|max:100',
-            'sale_date' => 'required|date',
-            'type' => 'required|max:100',
-
-            'artists' => 'required|max:2000',
-            'writers' => 'required|max:2000',
-        ], [
-            'required' => 'Il campo: :attribute deve essere inserito per proseguire.',
-            'max' => 'Il campo: :attribute deve contenere massimo :max caratteri.',
-            'sale_date.date' => 'Questo campo deve avere una data valida.',
-        ], [
-            'title' => 'Titolo',
-            'description' => 'Descrizione',
-            'thumb' => 'Thumb',
-            'price' => 'Prezzo',
-            'series' => 'Serie',
-            'sale_date' => 'Data di uscita',
-            'type' => 'Tipologia',
-            'artists' => 'Artisti',
-            'writers' => 'Scrittori',
-        ])->validate();
-    }
 }
